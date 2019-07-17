@@ -32,6 +32,18 @@ namespace GameLogic
             this.gameTracker.Joker--;
             
         }
+
+        public void Check(string letter)
+        {
+            if (letter.Length > 1)
+            {
+                this.gameTracker.Fails--;
+            }
+            else if (letter == null)
+            {
+                throw new ArgumentException("Letter should be provided!");
+            }
+        }
         public void GuessingLetter(string letter)
         {
             if(letter.Length == 1)
@@ -51,10 +63,7 @@ namespace GameLogic
                     this.gameTracker.Fails--;
                 }
             }
-            else if(letter.Length>1)
-            {
-                this.gameTracker.Fails--;
-            }
+            Check(letter);
         }
 
         public string LetterWithMinPriority()

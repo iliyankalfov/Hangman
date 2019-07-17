@@ -10,7 +10,7 @@
 <div class="text-dark text-center">Lives :@game.gameTracker.Fails</div>
 <div class="text-dark text-center">Available jokers :@game.gameTracker.Joker</div>
 
-<input type="text" class="input-word" placeholder="letter" @bind="Letter" />
+<input type="text" class="input-word" placeholder="letter" @bind="@Letter" />
 
 <div class="buttons">
     <button type="button" class="button" @onclick="@Guess">Guess</button>
@@ -20,7 +20,7 @@
     }
 </div>
 
-<div class="navigation">
+<div class="navigation" align="center">
     @if (this.game.guessingWord == this.game.realWord)
     {
         <h5>
@@ -28,8 +28,8 @@
             <br />
             Do you want play another game?
         </h5>
-        <button type="button" @onclick="@NewGame">Yes</button>
-        <button type="button" @onclick="@NavigateToGameOver">No</button>
+        <button type="button" class="button-to-firstPage" @onclick="@NewGame">Yes</button>
+        <button type="button" class="button-to-firstPage" @onclick="@NavigateToGameOver">No</button>
     }
 </div>
 

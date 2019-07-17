@@ -15,21 +15,15 @@ namespace Hangman.Services.UserServices
         {
             this.context = context;
         }
-
-
-        public int UserId { get; set; } = 0;
         public void CreateUser(string email, string password)
         {
+            bool isLoggedIn = false;
             var user = new User()
             {
                 Email = email,
                 Password = password
             };
-            if(!context.Users.Contains<User>(user))
-            {
-                context.Users.Add(user);
-                context.SaveChanges();
-            }
+            CheckIfLoggedIn(isLoggedIn, user);
         }
 
         public int GetUserIdWithGivenEmailAndPassword(string email,string password)
@@ -49,6 +43,22 @@ namespace Hangman.Services.UserServices
         {
             var users = context.Users;
             return users.ToList();
+        }
+
+        public void CheckIfLoggedIn(bool flag, User user)
+        {
+            foreach (var userLog in context.Users)
+            {
+                if (userLog.Email == user.Email && userLog.Password == user.Password)
+                {
+                    flag = true;
+                }
+            }
+            if (!flag)
+            {
+                context.Users.Add(user);
+                context.SaveChanges();
+            }
         }
     }
 }
