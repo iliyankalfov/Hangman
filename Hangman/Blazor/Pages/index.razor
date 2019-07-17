@@ -1,0 +1,27 @@
+﻿@page "/"
+@inherits LoginComponent
+
+<div class="title" align="center">The perfect game for you! But first you need to log in!</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="form-group row">
+            <label for="email" class="col-sm-3 col-form-label">Email</label>
+            <div class="col-sm-8">
+                <input  type="email" @bind="Email"class="form-control" id="email" placeholder="Email" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="pass" class="col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-8">
+                <input type="text" @bind="Password"class="form-control" id="pass" placeholder="Password"  />
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <button  type="submit" @onclick="@Login"class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+

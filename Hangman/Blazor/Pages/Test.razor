@@ -1,0 +1,31 @@
+@page "/test"
+@inject HttpClient httpClient
+
+<h1>@words.Count</h1>
+@if (words.Any())
+{
+    <div class="card-deck">
+        @foreach (var word in words)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@word.Name</h5>
+                    <p class="card-text">
+                        <strong>Word Difficulty</strong> @word.WordDifficulty
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>No Words Found</p>
+}
+
+@code {
+    private List<Word> words = new List<Word>();
+    protected override async Task OnInitAsync() => await GetWords();
+    private async Task GetWords() => words = await httpClient.GetJsonAsync<List<Word>>("https://localhost:44382/api/word");
+
+}

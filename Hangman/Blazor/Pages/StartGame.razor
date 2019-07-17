@@ -1,0 +1,38 @@
+@page "/startgame"
+@inherits GameComponent
+
+<div class="text-dark text-center text-black-50">Category: @CategoryName</div>
+<div class="text-dark text-center text-black-50">Word Difficulty: @WordDifficulty</div>
+
+<div class="text-dark text-center">@game.realWord</div>
+<div class="guessing-word text-dark text-center">@game.guessingWord</div>
+
+<div class="text-dark text-center">Lives :@game.gameTracker.Fails</div>
+<div class="text-dark text-center">Available jokers :@game.gameTracker.Joker</div>
+
+<input type="text" class="input-word" placeholder="letter" @bind="Letter" />
+
+<div class="buttons">
+    <button type="button" class="button" @onclick="@Guess">Guess</button>
+    @if (!game.gameTracker.NoAvailableJokers())
+    {
+        <button type="button" class="button-joker" @onclick="@UseJoker">Use joker</button>
+    }
+</div>
+
+<div class="navigation">
+    @if (this.game.guessingWord == this.game.realWord)
+    {
+        <h5>
+            Congratulations, you guessed the word!
+            <br />
+            Do you want play another game?
+        </h5>
+        <button type="button" @onclick="@NewGame">Yes</button>
+        <button type="button" @onclick="@NavigateToGameOver">No</button>
+    }
+</div>
+
+
+
+

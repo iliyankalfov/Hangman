@@ -1,0 +1,110 @@
+[
+  {
+    "name": "ball",
+    "wordDifficulty": 1,
+    "categoryId": 1,
+    "id": 27
+  },
+  {
+    "name": "jump",
+    "wordDifficulty": 1,
+    "categoryId": 1,
+    "id": 28
+  },
+  {
+    "name": "basketball",
+    "wordDifficulty": 2,
+    "categoryId": 1,
+    "id": 29
+  },
+  {
+    "name": "snooker",
+    "wordDifficulty": 2,
+    "categoryId": 1,
+    "id": 30
+  },
+  {
+    "name": "contract",
+    "wordDifficulty": 3,
+    "categoryId": 1,
+    "id": 31
+  },
+  {
+    "name": "championship",
+    "wordDifficulty": 3,
+    "categoryId": 1,
+    "id": 32
+  },
+  {
+    "name": "shirt",
+    "wordDifficulty": 1,
+    "categoryId": 2,
+    "id": 33
+  },
+  {
+    "name": "style",
+    "wordDifficulty": 1,
+    "categoryId": 2,
+    "id": 34
+  },
+  {
+    "name": "trousers",
+    "wordDifficulty": 2,
+    "categoryId": 2,
+    "id": 35
+  },
+  {
+    "name": "elegance",
+    "wordDifficulty": 2,
+    "categoryId": 2,
+    "id": 36
+  },
+  {
+    "name": "lipstick",
+    "wordDifficulty": 3,
+    "categoryId": 2,
+    "id": 37
+  },
+  {
+    "name": "eyeshadow",
+    "wordDifficulty": 3,
+    "categoryId": 2,
+    "id": 38
+  },
+  {
+    "name": "note",
+    "wordDifficulty": 1,
+    "categoryId": 3,
+    "id": 39
+  },
+  {
+    "name": "drums",
+    "wordDifficulty": 1,
+    "categoryId": 3,
+    "id": 40
+  },
+  {
+    "name": "guitar",
+    "wordDifficulty": 2,
+    "categoryId": 3,
+    "id": 41
+  },
+  {
+    "name": "rhythm",
+    "wordDifficulty": 2,
+    "categoryId": 3,
+    "id": 42
+  },
+  {
+    "name": "saxophone",
+    "wordDifficulty": 3,
+    "categoryId": 3,
+    "id": 43
+  },
+  {
+    "name": "performance",
+    "wordDifficulty": 3,
+    "categoryId": 3,
+    "id": 44
+  }
+]
