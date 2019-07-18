@@ -48,7 +48,6 @@ namespace Blazor.Components
                 await AddPoints(userId,this.WordDifficulty);
             }
         }
-
         private async Task NewWord()
         {
             var difficulty = SessionClass.wordDifficulty;

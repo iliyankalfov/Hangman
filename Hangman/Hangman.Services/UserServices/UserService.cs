@@ -42,7 +42,7 @@ namespace Hangman.Services.UserServices
         public List<User> GetAllUsers()
         {
             var users = context.Users;
-            return users.ToList();
+            return users.OrderByDescending(x => x.Points).ToList();
         }
 
         public void UpdateUserPointsWithGivenUserIdAndPoints(int userId, int points)
@@ -56,16 +56,6 @@ namespace Hangman.Services.UserServices
         {
             var user = context.Users.FirstOrDefault(x => x.Id == userId);
             return user;
-        }
-
-        public List<string> GetAllEmails()
-        {
-            List<string> emails = new List<string>();
-            foreach (var user in context.Users)
-            {
-                emails.Add(user.Email);
-            }
-            return emails;
         }
 
         public void CheckIfLoggedIn(bool flag, User user)

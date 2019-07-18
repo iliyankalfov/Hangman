@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Hangman.Data\Hangman.Data.csproj" />
     <ProjectReference Include="..\Hangman.Shared\Hangman.Shared.csproj" />
-    <ProjectReference Include="..\Hangman.ViewModels\Hangman.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

@@ -19,6 +19,5 @@ namespace Hangman.Services.UserServices
 
         User GetUser(int userId);
 
-        List<string> GetAllEmails();
     }
 }

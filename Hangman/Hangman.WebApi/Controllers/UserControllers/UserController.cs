@@ -24,12 +24,12 @@ namespace Hangman.WebApi.Controllers
             return this.Ok();
         }
 
-        /*[HttpGet]
+        [HttpGet("[action]")]
         public ActionResult<List<User>> GetAllUsers()
         {
             var users = userService.GetAllUsers();
             return users;
-        }*/
+        }
 
         [HttpDelete]
         public ActionResult DeleteAllUsers()

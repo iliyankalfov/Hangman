@@ -52,6 +52,16 @@ namespace Blazor.Clients
         {
             return await this.httpClient.GetJsonAsync<WordDifficulty>($"https://localhost:44382/api/word/GetWordDifficultyWithGivenWordId/{wordId}");
         }
+
+        public async Task<List<User>> GetAllUsers()
+        {
+            return await this.httpClient.GetJsonAsync<List<User>>($"https://localhost:44382/api/user/GetAllUsers");
+        }
+
+        public async Task<string> GetUser(int id)
+        {
+            return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{id}");
+        }
         /*public async Task<List<WordCategory>> GetCategories()
           {
               return await this.httpClient.GetJsonAsync<List<WordCategory>>($"https://localhost:44382/api/wordcategory");

@@ -2,7 +2,6 @@
 using Hangman.Data.Models;
 using Hangman.Data.Models.Enums;
 using Hangman.Shared.InputModels.Word;
-using Hangman.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -14,11 +14,23 @@ namespace Blazor.Components
 
         public int categoryId { get; set; } = 1;
 
+        public List<User> Users { get; set; } = new List<User>();
+
+        protected override async Task OnInitAsync()
+        {
+            this.Users = await ApiClient.GetAllUsers();
+        }
+
         public async Task StartGame()
         {
             SessionClass.wordDifficulty = this.wordDifficulty;
             SessionClass.categoryId = this.categoryId;
             this.UriHelper.NavigateTo("/startgame");
+        }
+
+        public async Task Navigate()
+        {
+            this.Users = await ApiClient.GetAllUsers();
         }
 
         public void RandomWordDifficulty()

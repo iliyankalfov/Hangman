@@ -1,4 +1,5 @@
 ﻿using Blazor.Clients;
+using Blazor.Shared.Data;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;

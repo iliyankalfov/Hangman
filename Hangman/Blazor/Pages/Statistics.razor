@@ -1,5 +1,27 @@
-<h3>Statistics</h3>
+@page "/statistics"
+@inherits StatisticsComponent
 
-@code {
-
-}
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Email</th>
+                <th scope="col">Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            @foreach (var user in Users)
+            {
+                if (Counter < 20)
+                {
+                    <tr>
+                        <th scope="row">@Counter</th>
+                        <td>@user.Email</td>
+                        <td>@user.Points</td>
+                    </tr>
+                    {Counter++;}
+                }
+            }
+        </tbody>
+    </table>

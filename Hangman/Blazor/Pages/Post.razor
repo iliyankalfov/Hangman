@@ -1,13 +1,6 @@
-@page "/post"
-@inject HttpClient httpClient
+@page "/insideStatistics"
+@inherits StatisticsComponent
 
 
 
-@code {
-     private User user { get; set; } = new User();
 
-  private async Task SaveNewContact()
-  {
-    await httpClient.PostJsonAsync("https://localhost:44382/api/user/CreateUser", user);        
-  }
-}
