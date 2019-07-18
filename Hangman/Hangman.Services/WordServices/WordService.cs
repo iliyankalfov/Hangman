@@ -1,7 +1,6 @@
 ﻿using Hangman.Data;
 using Hangman.Data.Models;
 using Hangman.Data.Models.Enums;
-using Hangman.Shared.InputModels.Word;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +17,12 @@ namespace Hangman.Services
             this.context = context;
         }
 
-        //TODO: delete
-        public void CreateWords()
+        /*public void CreateWords()
         {
-            List<string> easyWords = new List<string>() { "note", "drums" };
-            List<string> mediumWords = new List<string>() { "guitar", "rhythm" };
-            List<string> hardWords = new List<string>() { "saxophone", "performance" };
-            if (!context.Words.Any())
+            List<string> easyWords = new List<string>() { "note", "drums", "music" };
+            List<string> mediumWords = new List<string>() { "guitar", "rhythm", "chord" };
+            List<string> hardWords = new List<string>() { "saxophone", "performance", "orchestra" };
+            if (context.Words.Any())
             {
                 for (int i = 0; i < easyWords.Count; i++)
                 {
@@ -42,7 +40,7 @@ namespace Hangman.Services
                     context.SaveChanges();
                 }
             }
-        }
+        }*/
 
         public string GetRandomWord(WordDifficulty wordDifficulty, int categoryId)
         {
@@ -68,13 +66,12 @@ namespace Hangman.Services
             return words.ToList();
         }
 
-        //TODO: delete
-        public void DeleteAllWords()
+        /*public void DeleteAllWords()
         {
             var words = context.Words;
             context.Words.RemoveRange(words);
             context.SaveChanges();
-        }
+        }*/
 
         public int GetWordIdWithGivenName(string name)
         {
@@ -94,10 +91,11 @@ namespace Hangman.Services
             return word.Name;
         }
 
-        public List<Word> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty,int categoryId)
+        //Personal stats(in progress)
+        /*public List<Word> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty,int categoryId)
         {
             var list = context.Words.Where(x => x.WordDifficulty == wordDifficulty && x.CategoryId == categoryId);
             return list.ToList();
-        }
+        }*/
     }
 }

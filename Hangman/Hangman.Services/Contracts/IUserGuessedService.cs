@@ -11,6 +11,6 @@ namespace Hangman.Services.UserServices
 
         void DeleteAllUserGuessed();
 
-        List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId);
+        //List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId);
     }
 }

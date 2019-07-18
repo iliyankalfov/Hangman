@@ -1,7 +1,11 @@
 @page "/insideStatistics"
+@inherits InsideStatisticsComponent
 
 <h3>InsideStatistics</h3>
 
-@code {
-
+            <th scope="col">@UserId</th>
+@for (int i = 0; i < Words.Count; i++)
+{
+    <h5>@Words[i]</h5>
 }
+<button type="button" class="choose-btn" @onclick="@Navigate">Go back to play!</button>

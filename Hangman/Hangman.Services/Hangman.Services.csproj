@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Hangman.Data\Hangman.Data.csproj" />
-    <ProjectReference Include="..\Hangman.Shared\Hangman.Shared.csproj" />
   </ItemGroup>
 
 </Project>

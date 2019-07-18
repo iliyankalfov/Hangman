@@ -68,15 +68,14 @@ namespace Blazor.Clients
             return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{id}");
         }
 
-        public async Task<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
+        /*public async Task<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
         {
             return await this.httpClient.GetJsonAsync<List<Word>>($"https://localhost:44382/api/word/GetAllWordsWithGivenDifficultyAndCategoryId/{wordDifficulty}/{categoryId}");
-        }
-
-        public async Task<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
+        }*/
+        /*public async Task<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
         {
-            return await this.httpClient.GetJsonAsync<List<UserGuessed>>($"https://localhost:44382/api/word/{userId}");
-        }
+            return await this.httpClient.GetJsonAsync<List<UserGuessed>>($"https://localhost:44382/api/userguessed/{userId}");
+        }*/
         /*public async Task<List<WordCategory>> GetCategories()
           {
               return await this.httpClient.GetJsonAsync<List<WordCategory>>($"https://localhost:44382/api/wordcategory");
@@ -85,8 +84,16 @@ namespace Blazor.Clients
         //Post methods
         public async Task LoginUser(string email,string password)
         {
-            User user = new User() { Email = email, Password = password };           
-            await this.httpClient.PostJsonAsync($"https://localhost:44382/api/user/{email}/{password}",user);
+            try
+            {
+                User user = new User() { Email = email, Password = password };           
+                await this.httpClient.PostJsonAsync($"https://localhost:44382/api/user/{email}/{password}",user);
+            }
+            catch (ArgumentException ex)
+            {
+                throw new ArgumentException("Enter another email!");
+            }
+
         }
 
         public async Task CreateUserGuessedWord(int userId, int wordId)

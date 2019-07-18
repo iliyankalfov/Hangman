@@ -17,6 +17,7 @@ namespace Blazor
             services.AddSingleton<GameTracker>();
             services.AddSingleton<JsInteropClient>();
             services.AddSingleton<SessionClass>();
+            services.AddSingleton<SessionClassStats>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

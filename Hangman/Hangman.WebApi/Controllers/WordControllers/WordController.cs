@@ -1,7 +1,6 @@
 ﻿using Hangman.Data.Models;
 using Hangman.Data.Models.Enums;
 using Hangman.Services;
-using Hangman.Shared.InputModels.Word;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,19 +45,19 @@ namespace Hangman.WebApi.Controllers
             return wordDifficulty;
         }
 
-        [HttpDelete]
+        /*[HttpDelete]
         public ActionResult DeleteAllWords()
         {
             wordService.DeleteAllWords();
             return this.Ok();
-        }
+        }*/
 
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult CreateWords()
         {
             wordService.CreateWords();
             return this.Ok();
-        }
+        }*/
 
         [HttpGet("{id}")]
         public ActionResult<string> GetWordWithGivenId(int id)
@@ -66,10 +65,11 @@ namespace Hangman.WebApi.Controllers
             return wordService.GetWordWithGivenId(id);
         }
 
-        [HttpGet("[action]/{wordDifficulty}/{categoryId}")]
+        //Personal stats(in progress)
+        /*[HttpGet("[action]/{wordDifficulty}/{categoryId}")]
         public ActionResult<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
         {
             return wordService.GetAllWordsWithGivenDifficultyAndCategoryId(wordDifficulty, categoryId);
-        }
+        }*/
     }
 }

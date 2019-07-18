@@ -31,11 +31,12 @@ namespace Hangman.WebApi.Controllers
             return this.Ok();
         }
 
-        [HttpGet("{userId}")]
+        //Personal stats(in progress)
+        /*[HttpGet("{userId}")]
         public ActionResult<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
         {
             return userGuessedService.GetAllGuessedWordsWithGivenUserId(userId);
-        }
+        }*/
 
     }
 }

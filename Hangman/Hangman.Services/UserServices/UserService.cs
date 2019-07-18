@@ -17,13 +17,25 @@ namespace Hangman.Services.UserServices
         }
         public void CreateUser(string email, string password)
         {
+            bool ifExist = false;
+            if(context.Users.Any(x => x.Email == email && x.Password != password))
+            {
+                ifExist = true;
+            }
             bool isLoggedIn = false;
             var user = new User()
             {
                 Email = email,
                 Password = password
             };
-            CheckIfLoggedIn(isLoggedIn, user);
+            if(!ifExist)
+            {
+                CheckIfLoggedIn(isLoggedIn, user);
+            }
+            else
+            {
+                throw new ArgumentException("Enter another email!");
+            }
         }
 
         public int GetUserIdWithGivenEmailAndPassword(string email,string password)
@@ -73,6 +85,5 @@ namespace Hangman.Services.UserServices
                 context.SaveChanges();
             }
         }
-
     }
 }

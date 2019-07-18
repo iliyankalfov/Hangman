@@ -21,5 +21,8 @@ namespace Blazor.Components
 
         [Inject]
         public ApiClient ApiClient { get; set; }
+
+        [Inject]
+        public SessionClassStats sessionStats { get; set; }
     }
 }

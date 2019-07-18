@@ -1,19 +1,18 @@
 ﻿using Hangman.Data.Models;
 using Hangman.Data.Models.Enums;
-using Hangman.Shared.InputModels.Word;
 using System.Collections.Generic;
 
 namespace Hangman.Services
 {
     public interface IWordService
     {
-        void CreateWords();
+        //void CreateWords();
 
         string GetRandomWord(WordDifficulty wordDifficulty, int categortId);
 
         List<Word> GetAllWords();
 
-        void DeleteAllWords();
+        //void DeleteAllWords();
 
         int GetWordIdWithGivenName(string name);
 
@@ -21,6 +20,6 @@ namespace Hangman.Services
 
         string GetWordWithGivenId(int id);
 
-        List<Word> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId);
+        //List<Word> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId);
     }
 }
