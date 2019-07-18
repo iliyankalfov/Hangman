@@ -1,4 +1,5 @@
-﻿using Hangman.Services.UserServices;
+﻿using Hangman.Data.Models;
+using Hangman.Services.UserServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,12 @@ namespace Hangman.WebApi.Controllers
         {
             userGuessedService.DeleteAllUserGuessed();
             return this.Ok();
+        }
+
+        [HttpGet("{userId}")]
+        public ActionResult<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
+        {
+            return userGuessedService.GetAllGuessedWordsWithGivenUserId(userId);
         }
 
     }

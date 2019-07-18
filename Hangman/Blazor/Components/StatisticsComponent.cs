@@ -19,6 +19,8 @@ namespace Blazor.Components
         {
             var users = await ApiClient.GetAllUsers();
             this.Users = users;
-        }        
+        }      
+        
+
     }
 }

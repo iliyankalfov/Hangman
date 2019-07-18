@@ -9,7 +9,7 @@ namespace Hangman.Tests.GameTests
 {
     public class GameTests
     {
-        /*[Fact]
+        [Fact]
         public void InitializingOfTheWord()
         {
             GameTracker gameTracker = new GameTracker();
@@ -109,6 +109,6 @@ namespace Hangman.Tests.GameTests
 
             Assert.Equal(expectedFails, gameEngine.gameTracker.Fails);
             Assert.Equal(expectedJokers, gameEngine.gameTracker.Joker);
-        }*/
+        }
     }
 }

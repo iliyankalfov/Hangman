@@ -13,13 +13,11 @@ namespace Blazor.Components
         public WordDifficulty wordDifficulty { get; set; } = WordDifficulty.Easy;
 
         public int categoryId { get; set; } = 1;
+        public int CategoryStat { get; set; } = 0;
+        public WordDifficulty WordDifficultyStat { get; set; }
+        public int UserId { get; set; } = 0;
 
-        public List<User> Users { get; set; } = new List<User>();
-
-        protected override async Task OnInitAsync()
-        {
-            this.Users = await ApiClient.GetAllUsers();
-        }
+        public List<string> WordList { get; set; } = new List<string>();
 
         public async Task StartGame()
         {
@@ -27,10 +25,14 @@ namespace Blazor.Components
             SessionClass.categoryId = this.categoryId;
             this.UriHelper.NavigateTo("/startgame");
         }
-
-        public async Task Navigate()
+        
+        public void NavigateToChoisePage()
         {
-            this.Users = await ApiClient.GetAllUsers();
+            UriHelper.NavigateTo("/choice");
+        }
+        public void NavigateToLoginPage()
+        {
+            UriHelper.NavigateTo("/");
         }
 
         public void RandomWordDifficulty()
@@ -43,6 +45,32 @@ namespace Blazor.Components
         public async Task RandomCategory()
         {
             this.categoryId = await ApiClient.GetRandomCategoryId();
+        }
+
+        protected override async Task OnInitAsync()
+        {
+            var email = await JsInterop.GetSessionStorage("email");
+            var password = await JsInterop.GetSessionStorage("password");
+            var userId = await ApiClient.GetUserIdWithGivenEmailAndPassword(email, password);
+            this.WordDifficultyStat = SessionClass.wordDifficulty;
+            this.CategoryStat = SessionClass.categoryId;
+        }
+
+        public async Task GetStats()
+        {
+            var wordList = await ApiClient.GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficultyStat, CategoryStat);
+            var userGuessedList = await ApiClient.GetAllGuessedWordsWithGivenUserId(this.UserId);
+            for (int i = 0; i < userGuessedList.Count; i++)
+            {
+                foreach (var word in wordList)
+                {
+                    var wordId = await ApiClient.GetWordIdWithGivenName(word.Name);
+                    if(userGuessedList[i].WordId==wordId)
+                    {
+                        this.WordList.Add(word.Name);
+                    }
+                }
+            }
         }
     }
 }

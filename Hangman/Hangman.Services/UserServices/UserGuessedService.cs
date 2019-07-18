@@ -35,5 +35,11 @@ namespace Hangman.Services.UserServices
             context.UsersGuessed.RemoveRange(userGuessed);
             context.SaveChanges();
         }
+
+        public List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId)
+        {
+            var userGuessedList = context.UsersGuessed.Where(x => x.UserId == userId);
+            return userGuessedList.ToList();
+        }
     }
 }

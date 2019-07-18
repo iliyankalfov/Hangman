@@ -35,7 +35,7 @@ namespace Blazor.Clients
 
         public async Task<int> GetWordIdWithGivenName(string name)
         {
-            return await this.httpClient.GetJsonAsync<int>($"https://localhost:44382/api/word/{name}");
+            return await this.httpClient.GetJsonAsync<int>($"https://localhost:44382/api/word/GetWordIdWithGivenName/{name}");
         }
 
         public async Task<int> GetUserIdWithGivenEmailAndPassword(string email, string password)
@@ -60,7 +60,22 @@ namespace Blazor.Clients
 
         public async Task<string> GetUser(int id)
         {
+            return await this.httpClient.GetStringAsync($"https://localhost:44382/api/user/{id}");
+        }
+
+        public async Task<string> GetWordWithGivenId(int id)
+        {
             return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{id}");
+        }
+
+        public async Task<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
+        {
+            return await this.httpClient.GetJsonAsync<List<Word>>($"https://localhost:44382/api/word/GetAllWordsWithGivenDifficultyAndCategoryId/{wordDifficulty}/{categoryId}");
+        }
+
+        public async Task<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
+        {
+            return await this.httpClient.GetJsonAsync<List<UserGuessed>>($"https://localhost:44382/api/word/{userId}");
         }
         /*public async Task<List<WordCategory>> GetCategories()
           {

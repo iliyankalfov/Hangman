@@ -20,10 +20,6 @@ namespace Blazor.Components
         public string Email { get; set; } = "";
         public string Password { get; set; } = "";
         public string Word { get; set; } = "";
-        public int UserId { get; set; } = 0;
-        public int WordId { get; set; } = 0;
-        public int Points { get; set; } = 0;
-
 
         protected override async Task OnInitAsync() => await NewWord();
 
@@ -47,13 +43,12 @@ namespace Blazor.Components
                 await ApiClient.CreateUserGuessedWord(userId, wordId);
                 await AddPoints(userId,this.WordDifficulty);
             }
+            this.Letter = "";
         }
         private async Task NewWord()
         {
             var difficulty = SessionClass.wordDifficulty;
-            
             this.WordDifficulty = difficulty;
-            //this.Points = await ApiClient.GetPointsOfAWordDifficultyWithGivenWordDifficulty(Enum.GetName(typeof(WordDifficulty),difficulty));
 
             var categoryId = SessionClass.categoryId;
             var category = await ApiClient.GetWordCategoryWithGivenId(categoryId);
@@ -82,16 +77,18 @@ namespace Blazor.Components
             int points = 0;
             switch (wordDifficulty.ToString())
             {
-                case "Easy": points = 2;
+                case "Easy":
+                    points = 2;
                     break;
-                case "Medium": points = 5;
+                case "Medium":
+                    points = 5;
                     break;
-                case "Hard": points = 8;
+                case "Hard":
+                    points = 8;
                     break;
                 default:
                     break;
             }
-            //this.Points += points;
             await ApiClient.UpdateUserPointsWithGivenUserIdAndPoints(userId, points);
         }
     }

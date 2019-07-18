@@ -18,5 +18,9 @@ namespace Hangman.Services
         int GetWordIdWithGivenName(string name);
 
         WordDifficulty GetWordDifficultyWithGivenWordId(int wordId);
+
+        string GetWordWithGivenId(int id);
+
+        List<Word> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId);
     }
 }
