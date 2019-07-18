@@ -17,5 +17,7 @@ namespace Hangman.Services
         void DeleteAllWords();
 
         int GetWordIdWithGivenName(string name);
+
+        WordDifficulty GetWordDifficultyWithGivenWordId(int wordId);
     }
 }

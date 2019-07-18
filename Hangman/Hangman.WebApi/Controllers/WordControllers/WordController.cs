@@ -18,13 +18,6 @@ namespace Hangman.WebApi.Controllers
             this.wordService = wordService;
         }
 
-        /*[HttpPost]
-        public ActionResult CreateWords()
-        {
-            wordService.CreateWords();
-            return this.Ok();
-        }*/
-
         [HttpGet("{wordDifficulty}/{categoryId}")]
         public ActionResult<string> GetRandomWord(WordDifficulty wordDifficulty, int categoryId)
         {
@@ -45,11 +38,26 @@ namespace Hangman.WebApi.Controllers
             var wordId = wordService.GetWordIdWithGivenName(name);
             return wordId;
         }
-        /*[HttpDelete]
+
+        [HttpGet("[action]/{wordId}")]
+        public ActionResult<WordDifficulty> GetWordDifficultyWithGivenWordId(int wordId)
+        {
+            var wordDifficulty = wordService.GetWordDifficultyWithGivenWordId(wordId);
+            return wordDifficulty;
+        }
+
+        [HttpDelete]
         public ActionResult DeleteAllWords()
         {
             wordService.DeleteAllWords();
             return this.Ok();
-        }*/
+        }
+
+        [HttpPost]
+        public ActionResult CreateWords()
+        {
+            wordService.CreateWords();
+            return this.Ok();
+        }
     }
 }

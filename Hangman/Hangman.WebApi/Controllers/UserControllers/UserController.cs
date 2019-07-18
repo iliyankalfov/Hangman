@@ -44,5 +44,18 @@ namespace Hangman.WebApi.Controllers
             var userId = userService.GetUserIdWithGivenEmailAndPassword(email,password);
             return userId;
         }
+
+        [HttpPut("{userId}/{points}")]
+        public ActionResult UpdateUserPointsWithGivenUserIdAndPoints(int userId, int points)
+        {
+            userService.UpdateUserPointsWithGivenUserIdAndPoints(userId, points);
+            return this.Ok();
+        }
+
+        [HttpGet("{userId}")]
+        public ActionResult<User> GetUser(int userId)
+        {
+            return userService.GetUser(userId);
+        }
     }
 }

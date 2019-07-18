@@ -1,4 +1,5 @@
-﻿using Hangman.Services.WordServices;
+﻿using Hangman.Data.Models.Enums;
+using Hangman.Services.WordServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,7 @@ namespace Hangman.WebApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<int> GetWordDifficultyId(int id)
         {
-            var wdId = wordDifficultyService.GetWordDifficultyId(id);
-            return wdId;
-        }
+            return wordDifficultyService.GetWordDifficultyId(id);
+        }       
     }
 }

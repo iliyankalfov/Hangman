@@ -83,5 +83,10 @@ namespace Hangman.Services
             return word.Id;
         }
 
+        public WordDifficulty GetWordDifficultyWithGivenWordId(int wordId)
+        {
+            var word = context.Words.FirstOrDefault(x => x.Id == wordId);
+            return word.WordDifficulty;
+        }
     }
 }

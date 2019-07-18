@@ -48,6 +48,10 @@ namespace Blazor.Clients
             return await this.httpClient.GetJsonAsync<int>($"https://localhost:44382/api/wordcategory/GetRandomCategory");
         }
 
+        public async Task<WordDifficulty> GetWordDifficultyWithGivenWordId(int wordId)
+        {
+            return await this.httpClient.GetJsonAsync<WordDifficulty>($"https://localhost:44382/api/word/GetWordDifficultyWithGivenWordId/{wordId}");
+        }
         /*public async Task<List<WordCategory>> GetCategories()
           {
               return await this.httpClient.GetJsonAsync<List<WordCategory>>($"https://localhost:44382/api/wordcategory");
@@ -64,6 +68,13 @@ namespace Blazor.Clients
         {
             UserGuessed userGuessed = new UserGuessed() { UserId = userId, WordId = wordId };
             await this.httpClient.PostJsonAsync($"https://localhost:44382/api/userguessed/{userId}/{wordId}", userGuessed);
+        }
+
+        //Put methods
+        public async Task UpdateUserPointsWithGivenUserIdAndPoints(int userId, int points)
+        {
+            var user = await this.httpClient.GetJsonAsync<User>($"https://localhost:44382/api/user/{userId}");
+            await this.httpClient.PutJsonAsync($"https://localhost:44382/api/user/{userId}/{points}",user);
         }
 
     }

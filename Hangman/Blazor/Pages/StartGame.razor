@@ -4,6 +4,8 @@
 <div class="text-dark text-center text-black-50">Category: @CategoryName</div>
 <div class="text-dark text-center text-black-50">Word Difficulty: @WordDifficulty</div>
 
+<div class="text-dark text-center text-black-50">Points: @Points</div>
+
 <div class="text-dark text-center">@game.realWord</div>
 <div class="guessing-word text-dark text-center">@game.guessingWord</div>
 
@@ -13,7 +15,10 @@
 <input type="text" class="input-word" placeholder="letter" @bind="@Letter" />
 
 <div class="buttons">
-    <button type="button" class="button" @onclick="@Guess">Guess</button>
+    @if (game.guessingWord != game.realWord)
+    {
+        <button type="button" class="button" @onclick="@Guess">Guess</button>
+    }
     @if (!game.gameTracker.NoAvailableJokers())
     {
         <button type="button" class="button-joker" @onclick="@UseJoker">Use joker</button>
@@ -28,8 +33,8 @@
             <br />
             Do you want play another game?
         </h5>
-        <button type="button" class="button-to-firstPage" @onclick="@NewGame">Yes</button>
-        <button type="button" class="button-to-firstPage" @onclick="@NavigateToGameOver">No</button>
+        <button type="button" class="button-to-Page" @onclick="@NewGame">Yes</button>
+        <button type="button" class="button-to-Page" @onclick="@NavigateToGameOver">No</button>
     }
 </div>
 

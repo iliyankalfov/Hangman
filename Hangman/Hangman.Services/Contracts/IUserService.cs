@@ -14,5 +14,11 @@ namespace Hangman.Services.UserServices
         void DeleteAllUsers();
 
         int GetUserIdWithGivenEmailAndPassword(string email,string password);
+
+        void UpdateUserPointsWithGivenUserIdAndPoints(int userId,int points);
+
+        User GetUser(int userId);
+
+        List<string> GetAllEmails();
     }
 }

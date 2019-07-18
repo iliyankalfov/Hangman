@@ -45,6 +45,29 @@ namespace Hangman.Services.UserServices
             return users.ToList();
         }
 
+        public void UpdateUserPointsWithGivenUserIdAndPoints(int userId, int points)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Id == userId);
+            user.Points += points;
+            context.SaveChanges();
+        }
+
+        public User GetUser(int userId)
+        {
+            var user = context.Users.FirstOrDefault(x => x.Id == userId);
+            return user;
+        }
+
+        public List<string> GetAllEmails()
+        {
+            List<string> emails = new List<string>();
+            foreach (var user in context.Users)
+            {
+                emails.Add(user.Email);
+            }
+            return emails;
+        }
+
         public void CheckIfLoggedIn(bool flag, User user)
         {
             foreach (var userLog in context.Users)
@@ -60,5 +83,6 @@ namespace Hangman.Services.UserServices
                 context.SaveChanges();
             }
         }
+
     }
 }

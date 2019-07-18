@@ -40,6 +40,5 @@ namespace Hangman.Services.WordServices
             var wordDifficulty = context.WordDifficultyTables.FirstOrDefault(x => x.Id == id);
             return wordDifficulty.Id;
         }
-
     }
 }
