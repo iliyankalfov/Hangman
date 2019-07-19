@@ -7,7 +7,7 @@ namespace GameLogic
 {
     public class Game : IGame
     {
-        public Game(GameTracker tracker)
+        public Game(GameTracker tracker) 
         {
             this.gameTracker = tracker;
         }
@@ -39,7 +39,7 @@ namespace GameLogic
             {
                 this.gameTracker.Fails--;
             }
-            else if (letter == null)
+            else if (letter == "")
             {
                 throw new ArgumentException("Letter should be provided!");
             }

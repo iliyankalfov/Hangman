@@ -1,4 +1,5 @@
 ﻿using Hangman.Data.Models;
+using Hangman.Data.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,5 +13,6 @@ namespace Hangman.Services.UserServices
         void DeleteAllUserGuessed();
 
         //List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId);
+        //List<UserGuessed> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId);
     }
 }

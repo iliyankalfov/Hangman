@@ -1,5 +1,6 @@
 ﻿using Hangman.Data;
 using Hangman.Data.Models;
+using Hangman.Data.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,24 @@ namespace Hangman.Services.UserServices
         {
             var userGuessedList = context.UsersGuessed.Where(x => x.UserId == userId);
             return userGuessedList.ToList();
+        }*/
+        /*public List<UserGuessed> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        {
+            var list = new List<string>();
+            var wordsGuessed = context.UsersGuessed.Where(x => x.UserId == 4055);
+            var words = context.Words.Where(x => x.WordDifficulty == wordDifficulty && x.CategoryId == categoryId);
+            foreach (var wordG in wordsGuessed)
+            {
+                foreach (var word in words)
+                {
+                    if(word.Id == wordG.WordId )
+                    {
+                        list.Add(word.Name);
+                    }
+                }
+            }
+            list.Add("qnko");
+            return wordsGuessed.ToList();
         }*/
     }
 }

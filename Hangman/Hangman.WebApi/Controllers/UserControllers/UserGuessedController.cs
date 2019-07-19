@@ -1,4 +1,5 @@
 ﻿using Hangman.Data.Models;
+using Hangman.Data.Models.Enums;
 using Hangman.Services.UserServices;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,6 +38,10 @@ namespace Hangman.WebApi.Controllers
         {
             return userGuessedService.GetAllGuessedWordsWithGivenUserId(userId);
         }*/
-
+        /*[HttpGet("{usedId}/{wordDifficulty}/{categoryId}")]
+        public ActionResult<List<UserGuessed>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        {
+            return userGuessedService.GetAllWordsWithGivenUserIdDifficultyAndCategory(userId, wordDifficulty, categoryId);
+        }*/
     }
 }

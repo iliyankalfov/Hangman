@@ -17,7 +17,6 @@ namespace Blazor.Clients
             this.httpClient = httpClient;
         }
 
-        //Get methods
         public async Task<string> GetRandomWord(string wordDifficulty, int categoryId)
         {
             return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{wordDifficulty}/{categoryId}");
@@ -68,6 +67,10 @@ namespace Blazor.Clients
             return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{id}");
         }
 
+        /*public async Task<List<string>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        {
+            return await this.httpClient.GetJsonAsync<List<string>>($"https://localhost:44382/api/userguessed/{userId}/{wordDifficulty}/{categoryId}");
+        }*/
         /*public async Task<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
         {
             return await this.httpClient.GetJsonAsync<List<Word>>($"https://localhost:44382/api/word/GetAllWordsWithGivenDifficultyAndCategoryId/{wordDifficulty}/{categoryId}");
@@ -81,7 +84,8 @@ namespace Blazor.Clients
               return await this.httpClient.GetJsonAsync<List<WordCategory>>($"https://localhost:44382/api/wordcategory");
           }*/
 
-        //Post methods
+
+
         public async Task LoginUser(string email,string password)
         {
             try
@@ -102,7 +106,8 @@ namespace Blazor.Clients
             await this.httpClient.PostJsonAsync($"https://localhost:44382/api/userguessed/{userId}/{wordId}", userGuessed);
         }
 
-        //Put methods
+
+
         public async Task UpdateUserPointsWithGivenUserIdAndPoints(int userId, int points)
         {
             var user = await this.httpClient.GetJsonAsync<User>($"https://localhost:44382/api/user/{userId}");
