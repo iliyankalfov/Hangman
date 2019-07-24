@@ -1,11 +1,64 @@
 @page "/insideStatistics"
 @inherits InsideStatisticsComponent
 
-<h3>InsideStatistics</h3>
 
-            <th scope="col">@UserId</th>
-@for (int i = 0; i < Words.Count; i++)
-{
-    <h5>@Words[i]</h5>
-}
-<button type="button" class="choose-btn" @onclick="@Navigate">Go back to play!</button>
+
+<div class="title" align="center">
+    Statistics
+    <br>
+    Choose the category and the word difficulty to see your personal stats
+</div>
+
+<div class="stats-section" align="center">
+    <div class="form-row align-items-center input-choose">
+        <div class="col-auto my-1">
+            <div>
+                <label class="mr-sm-2">Choose the difficulty: </label>
+                <select class="custom-select mr-sm-2" @bind="@WordDifficultyStat">
+                    <option selected value="1">Easy</option>
+                    <option value="2">Medium</option>
+                    <option value="3">Hard</option>
+                </select>
+            </div>
+            <div>
+                <label class="mr-sm-2">Choose the category: </label>
+                <select class="custom-select mr-sm-2" @bind="@CategoryStatId">
+                    <option selected value="1">Sports</option>
+                    <option value="2">Fashion</option>
+                    <option value="3">Music</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div align="center">
+    <button type="button" class="stats-btn" @onclick="@GetStats">Get personal statistics!</button>
+</div>
+
+<div class="stats">
+    @if (State)
+    {
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Guessed words</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var word in Words)
+                {
+                    <tr>
+                        <td>@word</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>
+
+
+<div align="right">
+    <button type="button" class="choose-btn" @onclick="@Navigate">Back to play!</button>
+</div>

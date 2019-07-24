@@ -33,15 +33,16 @@ namespace Hangman.WebApi.Controllers
         }
 
         //Personal stats(in progress)
-        /*[HttpGet("{userId}")]
+        [HttpGet("{userId}")]
         public ActionResult<List<UserGuessed>> GetAllGuessedWordsWithGivenUserId(int userId)
         {
             return userGuessedService.GetAllGuessedWordsWithGivenUserId(userId);
-        }*/
-        /*[HttpGet("{usedId}/{wordDifficulty}/{categoryId}")]
-        public ActionResult<List<UserGuessed>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        }
+
+        [HttpGet("{userId}/{wordDifficulty}/{categoryId}")]
+        public ActionResult<List<string>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
         {
             return userGuessedService.GetAllWordsWithGivenUserIdDifficultyAndCategory(userId, wordDifficulty, categoryId);
-        }*/
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Hangman.Services.UserServices
 
         void DeleteAllUserGuessed();
 
-        //List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId);
-        //List<UserGuessed> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId);
+        List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId);
+        List<string> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId);
     }
 }

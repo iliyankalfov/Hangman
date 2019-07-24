@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GameLogic\Hangman.GameLogic.csproj" />
-    <ProjectReference Include="..\Hangman.Data\Hangman.Data.csproj" />
   </ItemGroup>
 
 </Project>

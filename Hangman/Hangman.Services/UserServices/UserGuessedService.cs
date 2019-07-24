@@ -38,15 +38,15 @@ namespace Hangman.Services.UserServices
         }
 
         //Personal stats(in progress)
-        /*public List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId)
+        public List<UserGuessed> GetAllGuessedWordsWithGivenUserId(int userId)
         {
             var userGuessedList = context.UsersGuessed.Where(x => x.UserId == userId);
             return userGuessedList.ToList();
-        }*/
-        /*public List<UserGuessed> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        }
+        public List<string> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
         {
             var list = new List<string>();
-            var wordsGuessed = context.UsersGuessed.Where(x => x.UserId == 4055);
+            var wordsGuessed = context.UsersGuessed.Where(x => x.UserId == userId).ToList();
             var words = context.Words.Where(x => x.WordDifficulty == wordDifficulty && x.CategoryId == categoryId);
             foreach (var wordG in wordsGuessed)
             {
@@ -58,8 +58,7 @@ namespace Hangman.Services.UserServices
                     }
                 }
             }
-            list.Add("qnko");
-            return wordsGuessed.ToList();
-        }*/
+            return list;
+        }
     }
 }

@@ -218,4 +218,28 @@ app {
     margin-top: 40px;
 }
 
+.stats{
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
 
+.choose-section{
+    width: 75%;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.stats-btn {
+    width: 200px;
+    border-radius: 15px;
+    margin-top: 30px;
+    background-color: purple;
+    color: white;
+    margin-right: 50px;
+}
+
+.stats-section{
+    width: 75%;
+    margin-left:auto;
+    margin-right: auto;
+}

@@ -67,10 +67,10 @@ namespace Blazor.Clients
             return await this.httpClient.GetStringAsync($"https://localhost:44382/api/word/{id}");
         }
 
-        /*public async Task<List<string>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
+        public async Task<List<string>> GetAllWordsWithGivenUserIdDifficultyAndCategory(int userId, WordDifficulty wordDifficulty, int categoryId)
         {
             return await this.httpClient.GetJsonAsync<List<string>>($"https://localhost:44382/api/userguessed/{userId}/{wordDifficulty}/{categoryId}");
-        }*/
+        }
         /*public async Task<List<Word>> GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficulty wordDifficulty, int categoryId)
         {
             return await this.httpClient.GetJsonAsync<List<Word>>($"https://localhost:44382/api/word/GetAllWordsWithGivenDifficultyAndCategoryId/{wordDifficulty}/{categoryId}");

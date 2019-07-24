@@ -7,8 +7,6 @@ namespace Blazor.Components
 {
     public class SessionClassStats
     {
-        public List<string> Words { get; set; }
-
         public int UserId { get; set; }
     }
 }

@@ -13,10 +13,8 @@ namespace Blazor.Components
         public WordDifficulty wordDifficulty { get; set; } = WordDifficulty.Easy;
 
         public int categoryId { get; set; } = 1;
-        public int CategoryStat { get; set; } = 0;
-        public WordDifficulty WordDifficultyStat { get; set; } = WordDifficulty.Easy;
+
         public int UserId { get; set; } = 0;
-        public List<string> WordList { get; set; } = new List<string>();
         public async Task StartGame()
         {
             SessionClass.wordDifficulty = this.wordDifficulty;
@@ -45,36 +43,9 @@ namespace Blazor.Components
             this.categoryId = await ApiClient.GetRandomCategoryId();
         }
 
-        //Personal stats(not finished)
-        /*protected override async Task OnInitAsync()
-        {
-            var email = await JsInterop.GetSessionStorage("email");
-            var password = await JsInterop.GetSessionStorage("password");
-            Console.WriteLine("test");
-            var userId = await ApiClient.GetUserIdWithGivenEmailAndPassword(email, password);
-            this.UserId = userId;
-        }*/
-        /*public async Task GetStats()
-        {
-            Console.WriteLine("test2");
-            var wordList = await ApiClient.GetAllWordsWithGivenDifficultyAndCategoryId(WordDifficultyStat, CategoryStat);
-            var userGuessedList = await ApiClient.GetAllGuessedWordsWithGivenUserId(this.UserId);
-
-            for (int i = 0; i < userGuessedList.Count; i++)
-            {
-                Console.WriteLine("test3");
-                foreach (var word in wordList)
-                {
-                    var wordId = await ApiClient.GetWordIdWithGivenName(word.Name);
-                    if (userGuessedList[i].WordId == wordId)
-                    {
-                        this.WordList.Add(word.Name);
-                    }
-                }
-            }
-            sessionStats.UserId = this.UserId;
-            sessionStats.Words = this.WordList;
+        public void NavigateToInsideStatistics()
+        {            
             UriHelper.NavigateTo("/insideStatistics");
-        }*/
+        }
     }
 }
